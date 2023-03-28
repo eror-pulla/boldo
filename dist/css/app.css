@@ -1300,6 +1300,7 @@ body {
   font-size: 20px;
   line-height: 32px;
   color: var(--color);
+  margin: 0;
 }
 .about .about-header h2 {
   font-family: "Manrope";
@@ -1420,6 +1421,7 @@ body {
   color: var(--home-text-color);
 }
 .team .position {
+  padding-bottom: 100px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -1446,4 +1448,63 @@ body {
   font-size: 28px;
   line-height: 48px;
   color: var(--color);
+}
+
+.values {
+  background-color: var(--color);
+}
+.values .lidership p {
+  margin-bottom: 12px;
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 32px;
+  color: var(--bg-color);
+}
+.values .lidership h6 {
+  margin-top: 0;
+  margin-bottom: 23px;
+  color: var(--bg-color);
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 72px;
+}
+.values .lidership .para {
+  color: var(--bg-color);
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 32px;
+}
+.values .wrap-values {
+  margin: 72px 0;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+.values .wrap-values img {
+  border-radius: 24px;
+}
+.values .wrap-values .inside-para h6 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: var(--bg-color);
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 48px;
+}
+.values .wrap-values .inside-para p {
+  margin: 0;
+  color: var(--bg-color);
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 32px;
 }

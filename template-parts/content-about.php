@@ -1,90 +1,106 @@
+<?php 
+$about_section_first = get_field('about_section_first');
+$title=$about_section_first['title'];
+$text=$about_section_first['text'];
+$paragraph=$about_section_first['paragraph'];
+?>
 <section class="about p2">
     <div class="about-header">
-        <h6>About</h6>
-        <h2>We love to make great things, things that matter.</h2>
+        <h6><?php echo $title ?></h6>
+        <h2><?php echo $text ?></h2>
     </div>
     <div class="about-text">
-        <p>Funding handshake buyer business-to-business metrics iPad partnership. First mover advantage innovator success deployment non-disclosure.</p>
+        <p><?php echo $paragraph ?></p>
     </div>
 </section>
+<?php
+$numbers_section = get_field('numbers_section');
+$title=$numbers_section['title'];
+?>
 <section class="our-nr p3">
     <h6>Our numbers</h6>
-    <h3>Handshake infographic mass market crowdfunding iteration.</h3>
+    <h3><?php echo $title ?></h3>
     <div class="wrap-numbers">
+    <?php 
+        $repeater_numbers=$numbers_section['repeater_numbers'];
+        $count = count($repeater_numbers);
+        if( $count ) {
+            foreach($repeater_numbers as $nr){
+                $numbers=$nr['numbers'];
+                $text=$nr['text'];
+    ?>
         <div class="nr-wrap">
-            <p class="nr">120m</p >
-            <p>Cool feature title</p>
+            <p class="nr"> <?php echo $numbers ?></p >
+            <p><?php echo $text ?></p>
         </div>
-        <div class="nr-wrap">
-            <p class="nr">10.000</p>
-            <p>Cool feature title</p>
-        </div>
-        <div class="nr-wrap">
-            <p class="nr">240</p >
-            <p>Cool feature title</p>
-        </div>
+    <?php  } } ?>
     </div>
 </section>
+<?php
+$about_story_section = get_field('about_story_section');
+$title=$about_story_section['title'];
+$paragraph=$about_story_section['paragraph'];
+?>
 <section class="story p4">
     <p>Our story</p>
-    <h6>Handshake infographic mass market crowdfunding iteration.</h6>
-    <p class="paragraph">
-    Conversion angel investor entrepreneur first mover advantage. Handshake infographic mass market crowdfunding iteration. Traction stock user experience deployment beta innovator incubator focus. Sales user experience branding growth hacking holy grail monetization conversion prototype stock network effects. Learning curve network effects return on investment bootstrapping business-to-consumer. 
-    </p>
+    <h6><?php echo $title ?></h6>
+    <p class="paragraph"><?php echo $paragraph ?></p>
 </section>
+<?php 
+$team_section = get_field('team_section');
+$title=$team_section['title'];
+$paragraph=$team_section['paragraph'];
+?>
 <section class="team">
     <div class="lidership p4">
         <p>Our team</p>
-        <h6>The leadership team</h6>
-        <p class="para">
-        Conversion angel investor entrepreneur first mover advantage. Handshake infographic mass market crowdfunding iteration. Traction stock user experience deployment beta innovator incubator focus. Sales user experience branding growth hacking holy grail monetization conversion prototype stock network effects. Learning curve network effects return on investment bootstrapping business-to-consumer. 
-        </p>
+        <h6><?php echo $title ?></h6>
+        <p class="para"><?php echo $paragraph ?></p>
     </div>
     <div class="position p5">
+    <?php 
+        $card_team_repeater=$team_section['card_team_repeater'];
+        $count = count($card_team_repeater);
+        if( $count ) {
+            foreach($card_team_repeater as $card){
+                $img=$card['img'];
+                $name=$card['name'];
+                $position=$card['position'];
+    ?>
         <div class="position-card">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/ms.png" alt="">
-            <p class="name">Michael Scott</p>
-            <p>General Manager</p>
+            <img src="<?php echo $img ?>" alt="">
+            <p class="name"><?php echo $name ?></p>
+            <p><?php echo  $position ?></p>
         </div>
-        <div class="position-card">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/ds.png" alt="">
-            <p class="name">Dwight Schrute</p>
-            <p>General Manager</p>
-        </div>
-        <div class="position-card">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/pb.png" alt="">
-            <p class="name">Pam Beetsley</p>
-            <p>General Manager</p>
-        </div>
+    <?php  } } ?>
     </div>
 </section>
-<section class="values">
-    <div class="lidership p4">
+<?php 
+$values_section = get_field('values_section');
+$title=$values_section['title'];
+$paragraph=$values_section['paragraph'];
+?>
+<section class="values p4">
+    <div class="lidership">
         <p>Our values</p>
-        <h6>Things in we believe</h6>
-        <p class="para">
-        Conversion angel investor entrepreneur first mover advantage. Handshake infographic mass market crowdfunding iteration. Traction stock user experience deployment beta innovator incubator focus. Sales user experience branding growth hacking holy grail monetization conversion prototype stock network effects. Learning curve network effects return on investment bootstrapping business-to-consumer. 
-        </p>
+        <h6><?php echo $title ?></h6>
+        <p class="para"><?php echo $paragraph ?></p>
     </div>
-     <div class="wrap-values p4">
-        <img src="<?php echo get_template_directory_uri(); ?>/images/values-1.png" alt="">
+    <?php 
+        $repeater_values=$values_section['repeater_values'];
+        $count = count($repeater_values);
+        if( $count ) {
+            foreach($repeater_values as $val){
+                $img=$val['img'];
+                $small_title=$val['small_title'];
+                $small_paragraph=$val['small_paragraph'];
+    ?>
+     <div class="wrap-values">
+        <img src="<?php echo $img ?>" alt="">
         <div class="inside-para">
-            <h6>We are commited.</h6>
-            <p>Conversion angel investor entrepreneur first mover advantage. Handshake infographic mass market crowdfunding iteration. </p>
+            <h6><?php echo $small_title ?></h6>
+            <p><?php echo $small_paragraph ?></p>
         </div>
      </div>
-     <div class="wrap-values p4">
-        <img src="<?php echo get_template_directory_uri(); ?>/images/values-1.png" alt="">
-        <div class="inside-para">
-            <h6>We are commited.</h6>
-            <p>Conversion angel investor entrepreneur first mover advantage. Handshake infographic mass market crowdfunding iteration. </p>
-        </div>
-     </div>
-     <div class="wrap-values p4">
-        <img src="<?php echo get_template_directory_uri(); ?>/images/values-1.png" alt="">
-        <div class="inside-para">
-            <h6>We are commited.</h6>
-            <p>Conversion angel investor entrepreneur first mover advantage. Handshake infographic mass market crowdfunding iteration. </p>
-        </div>
-     </div>
+    <?php  } } ?>
 </section>

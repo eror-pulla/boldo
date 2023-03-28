@@ -1,0 +1,201 @@
+@import 'variables';
+@import 'global';
+
+.about{
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    background: var(--bg-color);
+    .about-header{
+        h6{
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 32px;
+            color: var(--color);
+        }
+        h2{
+            font-family: 'Manrope';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 48px;
+            line-height: 72px;
+            color: var(--color);
+        }
+    }
+    .about-text{
+        p{
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 28px;
+            color: var(--color);
+        }
+    }
+}
+
+.our-nr{
+    background-color: var(--color);
+    text-align: center;
+    h6{
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 32px;
+        color: var(--bg-color);
+    }
+    h3{
+        font-family: 'Manrope';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 48px;
+        line-height: 72px;
+        color: var(--bg-color);
+    }
+    .wrap-numbers{
+        
+        display: flex;
+        justify-content: space-around;
+        .nr-wrap{
+            .nr{
+                font-family: 'Manrope';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 96px;
+                line-height: 56px;
+                color: var(--bg-color);
+            }
+            p{
+                font-family: 'Open Sans';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 24px;
+                line-height: 36px;
+                color: var(--bg-color);
+            }
+        }
+    }
+}
+
+.story{
+    p{
+        color:var(--color);
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 32px;
+        margin-bottom: 12px;
+    }
+    h6{
+        margin-top: 0;
+        margin-bottom: 30px;
+        font-family: 'Manrope';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 48px;
+        line-height: 72px;
+        color:var(--color);
+    }
+    .paragraph{
+        margin: 0;
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 32px;
+        color:var(--color);
+    }
+}
+.team{
+    .lidership{
+        padding-bottom: 50px !important;
+        p{
+            margin-bottom: 12px;
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 32px;
+            color: var( --home-text-color);
+        }
+        h6{
+            margin-top: 0;
+            margin-bottom: 23px;
+            font-family: 'Manrope';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 48px;
+            line-height: 72px;
+            color: var( --color);
+        }
+        .para{
+            margin: 0;
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 32px;
+            color: var( --home-text-color);
+        }
+    }
+    .position{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 52px;
+        .position-card{
+            img{
+                border-radius: 24px;
+            }
+            p{
+                margin: 0;
+                font-family: 'Open Sans';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 32px;
+                color: var( --home-text-color);
+            }
+            .name{
+                margin-top: 24px;
+                margin-bottom: 12px;
+                font-family: 'Manrope';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 28px;
+                line-height: 48px;
+                color: var(--color);
+            }
+        }
+    }
+}
+.values{
+    .lidership{
+        p{
+
+        }
+        h6{
+
+        }
+        .para{
+
+        }
+    }
+    .wrap-values{
+        img{
+
+        }
+        .inside-para{
+            h6{
+
+            }
+            p{
+                
+            }
+        }
+    }
+}

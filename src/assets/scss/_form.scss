@@ -1,0 +1,96 @@
+@import 'variables';
+@import 'global';
+
+.wpcf7{
+    padding: 70px 100px 70px 100px;
+    margin: 100px 10%;
+    border-radius: 12px;
+    background: var(--color);
+    text-align: start;
+    .wpcf7-form {
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        p{
+            font-family: 'Manrope';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            color: var(--bg-color);
+            .email{
+                display: flex;
+                .wpcf7-form-control-wrap{
+
+                }
+            }
+            .wpcf7-form-control.has-spinner.wpcf7-submit{
+                padding: 16px 56px;
+                background-color: var(--color);
+                color: var(--bg-color);
+                border: 1px solid;
+                border-color: var(--bg-color);
+                border-radius: 56px;
+                font-family: 'Open Sans';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 20px;
+                line-height: 28px;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-left: auto;
+                margin-right: auto;
+                // text-align: center;
+                .wpcf7-spinner{
+                    display: none !important;
+                }
+            }
+
+        }
+    }
+}
+
+.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required{
+    margin-top: 6px;
+    width: 100%;
+    border-radius: 240px;
+}
+.wpcf7-form-control.wpcf7-textarea{
+    margin-top: 6px;
+    width: 100%;
+    border-radius: 12px;
+}
+.wpcf7-form-control.wpcf7-text.wpcf7-email.wpcf7-validates-as-required.wpcf7-validates-as-email{
+padding: 12px 12px 12px 12px;
+font-family: 'Open Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 28px;
+margin: 0;
+}
+
+.inside-form{
+    display: flex;
+    justify-content: center;
+    /* justify-content: space-between; */
+    width: 100%;
+    align-items: center;
+    gap: 45px;
+}
+
+.head-form{
+    .footer-title{
+        text-align: center;
+        font-family: 'Manrope';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 48px;
+        line-height: 72px;
+        color: var(--bg-color);
+        margin-top: 70px;
+        margin-bottom: 50px;
+    }
+}

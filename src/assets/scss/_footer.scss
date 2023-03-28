@@ -1,0 +1,99 @@
+@import 'variables';
+
+.footer{
+    display: flex;
+    // justify-content: space-between;
+    align-items: center;
+    // margin-right: 170px;
+    .footer-logo{
+        margin-right: 180px;
+        // width:50%;
+        .logo-div{
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            .invert{
+                filter: var( --logo-color);
+            }
+            h3{
+                font-family: 'Manrope';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 43.25px;
+                line-height: 34px;
+                color: var(--color);
+            }
+        }
+        p{
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 28px;
+            color: var( --footer-color);
+            margin-bottom: 60px;
+        }
+    }
+    .col-landing{
+        width: 23.33%;
+        h3{
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 32px;
+            color: var(--color);
+            margin-bottom: 32px;
+        }
+        p{
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 32px;
+            color: var( --footer-color);
+        }
+
+    }
+    .col-company{
+        width: 23.33%;
+        h3{
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 32px;
+            color: var(--color);
+            margin-bottom: 32px;
+        }
+        p{
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 32px;
+            color: var( --footer-color);
+        }
+    }
+    .col-resources {
+        width: 23.33%;
+        h3{
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 32px;
+            color: var(--color);
+            margin-bottom: 32px;
+        }
+        p{
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 32px;
+            color: var( --footer-color);
+        }
+    }
+}

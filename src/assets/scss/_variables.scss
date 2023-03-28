@@ -1,0 +1,38 @@
+$main-color: #0A2640;
+$bg-color-light: #FFFFFF;
+$dark-color: #FFFFFF;
+$bg-color-dark: #0A2640;
+$green-light: #65E4A3;
+
+body{
+  --color:#0A2640;
+  --bg-color:#FFFFFF;
+  --logo-color:none;
+  --footer-color:#777777;
+  --home-text-color:#777777;
+  --swiper-color:none;
+  --arrow-color:none;
+  --icon-color:brightness(0) saturate(100%) invert(12%) sepia(51%) saturate(937%) hue-rotate(166deg) brightness(95%) contrast(98%);
+  --reverse-icon:brightness(0) saturate(100%) invert(100%) sepia(70%) saturate(0%) hue-rotate(81deg) brightness(107%) contrast(100%);
+}
+body.dark-mode{
+  --color: #FFFFFF;
+  --bg-color: #0A2640;
+  --logo-color:brightness(0) saturate(100%) invert(82%) sepia(12%) saturate(1789%) hue-rotate(91deg) brightness(104%) contrast(79%);
+  --footer-color:#b3a8a8;
+  --home-text-color:#FFFFFF;
+  --swiper-color: brightness(0) saturate(100%) invert(93%) sepia(0%) saturate(28%) hue-rotate(124deg) brightness(106%) contrast(106%);
+  --arrow-color: brightness(0) saturate(100%) invert(12%) sepia(11%) saturate(6651%) hue-rotate(178deg) brightness(91%) contrast(95%);
+  --icon-color:brightness(0) saturate(100%) invert(100%) sepia(70%) saturate(0%) hue-rotate(81deg) brightness(107%) contrast(100%);
+  --reverse-icon:brightness(0) saturate(100%) invert(13%) sepia(63%) saturate(621%) hue-rotate(166deg) brightness(91%) contrast(101%);
+}
+
+// body.light-mode {
+//     background-color: var(--bg-color);
+//     color:var(--color) ;
+//   }
+
+// body.dark-mode {
+//     background-color: var(--bg-color);
+//     color:var(--color);
+//   }

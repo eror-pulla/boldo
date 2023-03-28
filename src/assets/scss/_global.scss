@@ -1,0 +1,49 @@
+@import 'variables';
+.m1{
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.m2{
+  margin-left: 150px;
+  margin-right: 150px;
+}
+.m3{
+  margin-left: 200px;
+  margin-right: 200px;
+}
+.p1{
+  padding: 100px 150px;
+}
+.p2{
+  padding: 100px 100px;
+}
+.p3{
+  padding: 100px 200px;
+}
+.p4{
+  padding: 120px 300px;
+}
+.p5{
+  padding-left:200px;
+  padding-right:200px;
+}
+body{
+  color: var(--color);
+  background: var(--bg-color);
+  margin: 0;
+  padding: 0;
+}
+.active-ticks{
+  p{
+    color: var(--bg-color) !important;
+  }
+  background:var(--color);
+  img{
+    filter: var( --reverse-icon) !important;
+    // filter: var(--icon-color) !important;
+  }
+}
+
+.active-img-ticks{
+  z-index: 888;
+}

@@ -5,6 +5,13 @@ $bg-color-dark: #0A2640;
 $green-light: #65E4A3;
 
 body{
+  --mobile_1: brightness(0) saturate(100%) invert(10%) sepia(37%) saturate(2242%) hue-rotate(180deg) brightness(99%) contrast(95%);
+  --main_1:#000000;
+  --main_2:#fff;
+  --main_3:#F1F1F1;
+  --round-color:#F1F1F1;
+  --green-bg: #65E4A3;
+  --green_1:#65E4A3;
   --color:#0A2640;
   --bg-color:#FFFFFF;
   --logo-color:none;
@@ -16,6 +23,13 @@ body{
   --reverse-icon:brightness(0) saturate(100%) invert(100%) sepia(70%) saturate(0%) hue-rotate(81deg) brightness(107%) contrast(100%);
 }
 body.dark-mode{
+  --mobile_1: brightness(0) saturate(100%) invert(100%) sepia(34%) saturate(122%) hue-rotate(110deg) brightness(114%) contrast(100%);
+  --main_1:#fff;
+  --main_2:#000;
+  --main_3:#777777;
+  --round-color:#1C3D5B;  
+  --green-bg:#0A2640;
+  --green_1:#fff;
   --color: #FFFFFF;
   --bg-color: #0A2640;
   --logo-color:brightness(0) saturate(100%) invert(82%) sepia(12%) saturate(1789%) hue-rotate(91deg) brightness(104%) contrast(79%);
@@ -26,13 +40,3 @@ body.dark-mode{
   --icon-color:brightness(0) saturate(100%) invert(100%) sepia(70%) saturate(0%) hue-rotate(81deg) brightness(107%) contrast(100%);
   --reverse-icon:brightness(0) saturate(100%) invert(13%) sepia(63%) saturate(621%) hue-rotate(166deg) brightness(91%) contrast(101%);
 }
-
-// body.light-mode {
-//     background-color: var(--bg-color);
-//     color:var(--color) ;
-//   }
-
-// body.dark-mode {
-//     background-color: var(--bg-color);
-//     color:var(--color);
-//   }

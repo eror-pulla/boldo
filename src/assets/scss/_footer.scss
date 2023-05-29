@@ -1,99 +1,870 @@
 @import 'variables';
 
-.footer{
-    display: flex;
-    // justify-content: space-between;
-    align-items: center;
-    // margin-right: 170px;
-    .footer-logo{
-        margin-right: 180px;
-        // width:50%;
-        .logo-div{
+.menu-item-description{
+    margin-left: 20px;
+    padding: 2px 14px;
+    background-color: var(--green_1) ; 
+    color: $main-color;
+}
+    .footer{
+        width: 100%;
+        display: flex;
+        // justify-content: space-between;
+        align-items: center;
+        // margin-right: 170px;
+        .footer-logo{
+            margin-right: 180px;
+            // width:50%;
+            .logo-div{
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                margin-bottom: 40px;
+                opacity: 0;
+                visibility: hidden;
+                transition: all ease .6s;
+                transform: translateY(20px);
+            &.is-inview{
+                opacity: 1;
+                visibility: visible;
+                transition-delay: 0.1s;
+                transform: translateY(0px);
+            }
+                .invert{
+                    filter: var( --logo-color);
+                }
+                h3{
+                    font-family: 'Manrope';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 43.25px;
+                    line-height: 34px;
+                    color: var(--color);
+                }
+            }
+            p{
+                font-family: 'Open Sans';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 28px;
+                color: var( --footer-color);
+                margin-bottom: 60px;
+                opacity: 0;
+                visibility: hidden;
+                transition: all ease .6s;
+                transform: translateY(20px);
+            &.is-inview{
+                opacity: 1;
+                visibility: visible;
+                transition-delay: 0.2s;
+                transform: translateY(0px);
+            }
+            }
+            .rights{
+                font-family: 'Open Sans';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 28px;
+                color: var( --footer-color);
+                margin-bottom: 60px;
+                opacity: 0;
+                visibility: hidden;
+                transition: all ease .6s;
+                transform: translateY(20px);
+            &.is-inview{
+                opacity: 1;
+                visibility: visible;
+                transition-delay: 0.3s;
+                transform: translateY(0px);
+            }
+            }
+        }
+        .col-wrap{
+            width: 100%;
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 40px;
-            .invert{
-                filter: var( --logo-color);
+            // justify-content: space-between;
+            gap: 20px;
+            .col-landing{
+                width: 100%;
+                opacity: 0;
+                visibility: hidden;
+                transition: all ease .6s;
+                transform: translateY(20px);
+            &.is-inview{
+                opacity: 1;
+                visibility: visible;
+                transition-delay: 0.3s;
+                transform: translateY(0px);
             }
-            h3{
-                font-family: 'Manrope';
-                font-style: normal;
-                font-weight: 700;
-                font-size: 43.25px;
-                line-height: 34px;
-                color: var(--color);
+                h3{
+                    font-family: 'Open Sans';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 20px;
+                    line-height: 32px;
+                    color: var(--color);
+                    margin-bottom: 32px;
+                }
+                ul{
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    li{
+                        text-decoration: none;
+                        list-style: none;
+                        margin-bottom: 24px;
+                        a{
+                            text-decoration: none;
+                            font-family: 'Open Sans';
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 20px;
+                            line-height: 32px;
+                            color: var( --footer-color);
+                            .menu-item-description{
+                                margin-left: 20px;
+                                padding: 2px 14px;
+                                background-color: var(--green_1) ; 
+                                color: $main-color;
+                                font-family: 'Open Sans';
+                                font-style: normal;
+                                font-weight: 700;
+                                font-size: 13px;
+                                line-height: 28px;
+                            }
+                        }
+                    }
+                }
+    
             }
-        }
-        p{
-            font-family: 'Open Sans';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 28px;
-            color: var( --footer-color);
-            margin-bottom: 60px;
+            .col-company{
+                width: 100%;
+                opacity: 0;
+                visibility: hidden;
+                transition: all ease .6s;
+                transform: translateY(20px);
+            &.is-inview{
+                opacity: 1;
+                visibility: visible;
+                transition-delay: 0.3s;
+                transform: translateY(0px);
+            }
+                h3{
+                    font-family: 'Open Sans';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 20px;
+                    line-height: 32px;
+                    color: var(--color);
+                    margin-bottom: 32px;
+                }
+                ul{
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    li{
+                        text-decoration: none;
+                        list-style: none;
+                        margin-bottom: 24px;
+                        a{
+                            text-decoration: none;
+                            font-family: 'Open Sans';
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 20px;
+                            line-height: 32px;
+                            color: var( --footer-color);
+                            .menu-item-description{
+                                margin-left: 20px;
+                                padding: 2px 14px;
+                                background-color: var(--green_1); 
+                                color: $main-color;
+                                border-radius: 120px;
+                                font-family: 'Open Sans';
+                                font-style: normal;
+                                font-weight: 700;
+                                font-size: 13px;
+                                line-height: 28px;
+                            }
+                        }
+                    }
+                }
+            }
+            .col-resources {
+                width: 100%;
+                opacity: 0;
+                visibility: hidden;
+                transition: all ease .6s;
+                transform: translateY(20px);
+            &.is-inview{
+                opacity: 1;
+                visibility: visible;
+                transition-delay: 0.3s;
+                transform: translateY(0px);
+            }
+                h3{
+                    font-family: 'Open Sans';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 20px;
+                    line-height: 32px;
+                    color: var(--color);
+                    margin-bottom: 32px;
+                }
+                ul{
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    li{
+                        text-decoration: none;
+                        list-style: none;
+                        margin-bottom: 24px;
+                        a{
+                            text-decoration: none;
+                            font-family: 'Open Sans';
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 20px;
+                            line-height: 32px;
+                            color: var( --footer-color);
+                            .menu-item-description{
+                                margin-left: 20px;
+                                padding: 2px 14px;
+                                background-color: var(--green_1); 
+                                color: $main-color;
+                                border-radius: 120px;
+                                font-family: 'Open Sans';
+                                font-style: normal;
+                                font-weight: 700;
+                                font-size: 13px;
+                                line-height: 28px;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
-    .col-landing{
-        width: 23.33%;
-        h3{
-            font-family: 'Open Sans';
-            font-style: normal;
-            font-weight: 700;
-            font-size: 20px;
-            line-height: 32px;
-            color: var(--color);
-            margin-bottom: 32px;
-        }
-        p{
-            font-family: 'Open Sans';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 20px;
-            line-height: 32px;
-            color: var( --footer-color);
-        }
 
+    @media(max-width:1600px){
+        .footer{
+            .footer-logo{
+                margin-right: 150px;
+                // width:50%;
+                .logo-div{
+                &.is-inview{
+                  
+                }
+                    .invert{
+                    
+                    }
+                    h3{
+                       
+                    }
+                }
+                p{
+                   
+                &.is-inview{
+                   
+                }
+                }
+                .rights{
+                   
+                &.is-inview{
+                    
+                }
+                }
+            }
+            .col-wrap{
+                .col-landing{
+                   
+                &.is-inview{
+                   
+                }
+                    h3{
+                      
+                    }
+                    ul{
+                      
+                        li{
+                          
+                            a{
+                              
+                                .menu-item-description{
+                                  
+                                }
+                            }
+                        }
+                    }
+        
+                }
+                .col-company{
+                  
+                &.is-inview{
+                  
+                }
+                    h3{
+                       
+                    }
+                    ul{
+                        
+                        li{
+                           
+                            a{
+                                
+                                .menu-item-description{
+                                  
+                                }
+                            }
+                        }
+                    }
+                }
+                .col-resources {
+                  
+                &.is-inview{
+                  
+                }
+                    h3{
+                       
+                    }
+                    ul{
+                       
+                        li{
+                          
+                            a{
+                               
+                                .menu-item-description{
+                                  
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
-    .col-company{
-        width: 23.33%;
-        h3{
-            font-family: 'Open Sans';
-            font-style: normal;
-            font-weight: 700;
-            font-size: 20px;
-            line-height: 32px;
-            color: var(--color);
-            margin-bottom: 32px;
-        }
-        p{
-            font-family: 'Open Sans';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 20px;
-            line-height: 32px;
-            color: var( --footer-color);
+
+    @media(max-width:1440px){
+        // .footer{
+        //     display: none;
+        // }
+        .footer{
+            .footer-logo{
+                margin-right: 80px;
+                // width:50%;
+                .logo-div{
+                &.is-inview{
+                  
+                }
+                    .invert{
+                    
+                    }
+                    h3{
+                       
+                    }
+                }
+                p{
+                   
+                &.is-inview{
+                   
+                }
+                }
+                .rights{
+                   
+                &.is-inview{
+                    
+                }
+                }
+            }
+            .col-wrap{
+                .col-landing{
+                   
+                &.is-inview{
+                   
+                }
+                    h3{
+                        font-size: 18px;
+                        line-height: 30px;
+                    }
+                    ul{
+                      
+                        li{
+                          
+                            a{
+                                font-size: 18px;
+                                line-height: 28px;
+                                .menu-item-description{
+                                    margin-left: 16px;
+                                    padding: 2px 13px;
+                                    font-size: 11px;
+                                    line-height: 26px;
+                                }
+                            }
+                        }
+                    }
+        
+                }
+                .col-company{
+                  
+                &.is-inview{
+                  
+                }
+                    h3{
+                        font-size: 18px;
+                        line-height: 30px;
+                    }
+                    ul{
+                        
+                        li{
+                           
+                            a{
+                                font-size: 18px;
+                                line-height: 28px;
+                                .menu-item-description{
+                                    margin-left: 16px;
+                                    padding: 2px 13px;
+                                    font-size: 11px;
+                                    line-height: 26px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .col-resources {
+                  
+                &.is-inview{
+                  
+                }
+                    h3{
+                        font-size: 18px;
+                        line-height: 30px;
+                    }
+                    ul{
+                       
+                        li{
+                          
+                            a{
+                                font-size: 18px;
+                                line-height: 28px;
+                                .menu-item-description{
+                                    margin-left: 16px;
+                                    padding: 2px 13px;
+                                    font-size: 11px;
+                                    line-height: 26px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
-    .col-resources {
-        width: 23.33%;
-        h3{
-            font-family: 'Open Sans';
-            font-style: normal;
-            font-weight: 700;
-            font-size: 20px;
-            line-height: 32px;
-            color: var(--color);
-            margin-bottom: 32px;
-        }
-        p{
-            font-family: 'Open Sans';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 20px;
-            line-height: 32px;
-            color: var( --footer-color);
+    @media(max-width:992px){
+        .footer{
+            .footer-logo{
+                margin-right: 60px;
+             
+                .logo-div{
+                &.is-inview{
+                  
+                }
+                    .invert{
+                    
+                    }
+                    h3{
+                       
+                    }
+                }
+                p{
+                    font-size: 15px;
+                    line-height: 24px;
+                    margin-bottom: 42px;
+                &.is-inview{
+                   
+                }
+                }
+                .rights{
+                    font-size: 15px;
+                    line-height: 24px;
+                    margin-bottom: 50px;
+                &.is-inview{
+                    
+                }
+                }
+            }
+            .col-wrap{
+                align-items: baseline;
+                .col-landing{
+                   
+                &.is-inview{
+                   
+                }
+                    h3{
+                        font-size: 16px;
+                        line-height: 22px;
+                    }
+                    ul{
+                      
+                        li{
+                          
+                            a{
+                                font-size: 16px;
+                                line-height: 20px;
+                                .menu-item-description{
+                                    margin-left: 12px;
+                                    padding: 2px 12px;
+                                    font-size: 10px;
+                                    line-height: 22px;
+                                }
+                            }
+                        }
+                    }
+        
+                }
+                .col-company{
+                  
+                &.is-inview{
+                  
+                }
+                    h3{
+                        font-size: 16px;
+                        line-height: 24px;
+                    }
+                    ul{
+                        
+                        li{
+                           
+                            a{
+                                font-size: 16px;
+                                line-height: 20px;
+                                .menu-item-description{
+                                    margin-left: 12px;
+                                    padding: 2px 12px;
+                                    font-size: 10px;
+                                    line-height: 22px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .col-resources {
+                  
+                &.is-inview{
+                  
+                }
+                    h3{
+                        font-size: 16px;
+                        line-height: 24px;
+                    }
+                    ul{
+                       
+                        li{
+                          
+                            a{
+                                font-size: 16px;
+                                line-height: 22px;
+                                .menu-item-description{
+                                    margin-left: 12px;
+                                    padding: 2px 12px;
+                                    font-size: 10px;
+                                    line-height: 22px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
-}
+    @media(max-width:768px){
+        .footer{
+            flex-direction: column;
+            .footer-logo{
+                margin-right: 60px;
+                .logo-div{
+                &.is-inview{
+                  
+                }
+                    .invert{
+                    
+                    }
+                    h3{
+                       
+                    }
+                }
+                p{
+                 
+                &.is-inview{
+                   
+                }
+                }
+                .rights{
+                  
+                &.is-inview{
+                    
+                }
+                }
+            }
+            .col-wrap{
+                gap: 25%;
+                .col-landing{
+                   
+                &.is-inview{
+                   
+                }
+                    h3{
+                      
+                    }
+                    ul{
+                      
+                        li{
+                          
+                            a{
+                               
+                                .menu-item-description{
+                                   
+                                }
+                            }
+                        }
+                    }
+        
+                }
+                .col-company{
+                  
+                &.is-inview{
+                  
+                }
+                    h3{
+                       
+                    }
+                    ul{
+                        
+                        li{
+                           
+                            a{
+                                .menu-item-description{
+                                 
+                                }
+                            }
+                        }
+                    }
+                }
+                .col-resources {
+                  
+                &.is-inview{
+                  
+                }
+                    h3{
+                        
+                    }
+                    ul{
+                       
+                        li{
+                          
+                            a{
+                                .menu-item-description{
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media(max-width:650px){
+        .footer{
+            flex-direction: column;
+            .footer-logo{
+                margin-right: 0px;
+                .logo-div{
+                &.is-inview{
+                  
+                }
+                    .invert{
+                        height: 32px;
+                    }
+                    h3{
+                        font-size: 36.25px;
+                    }
+                }
+                p{
+                 
+                &.is-inview{
+                   
+                }
+                }
+                .rights{
+                  
+                &.is-inview{
+                    
+                }
+                }
+            }
+            .col-wrap{
+                gap: 12.5%;
+                .col-landing{
+                   
+                &.is-inview{
+                   
+                }
+                    h3{
+                      
+                    }
+                    ul{
+                      
+                        li{
+                          
+                            a{
+                               
+                                .menu-item-description{
+                                   
+                                }
+                            }
+                        }
+                    }
+        
+                }
+                .col-company{
+                  
+                &.is-inview{
+                  
+                }
+                    h3{
+                       
+                    }
+                    ul{
+                        
+                        li{
+                           
+                            a{
+                                .menu-item-description{
+                                 
+                                }
+                            }
+                        }
+                    }
+                }
+                .col-resources {
+                  
+                &.is-inview{
+                  
+                }
+                    h3{
+                        
+                    }
+                    ul{
+                       
+                        li{
+                          
+                            a{
+                                .menu-item-description{
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media(max-width:425px){
+        .footer{
+            flex-direction: column;
+            .footer-logo{
+                margin-right: 0px;
+                .logo-div{
+                &.is-inview{
+                  
+                }
+                    .invert{
+                    
+                    }
+                    h3{
+                       
+                    }
+                }
+                p{
+                 
+                &.is-inview{
+                   
+                }
+                }
+                .rights{
+                  
+                &.is-inview{
+                    
+                }
+                }
+            }
+            .col-wrap{
+                flex-direction: column;
+                gap: 5%;
+                .col-landing{
+                   
+                &.is-inview{
+                   
+                }
+                    h3{
+                      
+                    }
+                    ul{
+                      
+                        li{
+                          
+                            a{
+                               
+                                .menu-item-description{
+                                   
+                                }
+                            }
+                        }
+                    }
+        
+                }
+                .col-company{
+                  
+                &.is-inview{
+                  
+                }
+                    h3{
+                       
+                    }
+                    ul{
+                        
+                        li{
+                           
+                            a{
+                                .menu-item-description{
+                                 
+                                }
+                            }
+                        }
+                    }
+                }
+                .col-resources {
+                  
+                &.is-inview{
+                  
+                }
+                    h3{
+                        
+                    }
+                    ul{
+                       
+                        li{
+                          
+                            a{
+                                .menu-item-description{
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }

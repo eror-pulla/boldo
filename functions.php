@@ -162,12 +162,14 @@ function boldo_scripts() {
 	wp_register_script( 'jQuery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js', null, null, true );
     wp_enqueue_script('jQuery');
 
+	wp_enqueue_script('locomotive-scroll', 'https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1/dist/locomotive-scroll.min.js');
+	
 	// wp_enqueue_script('jquery');
 
-	wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js');
-	wp_enqueue_script('locomotive-scroll', 'https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1/dist/locomotive-scroll.min.js');
-	wp_enqueue_style('swiper-css','https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css');
-
+	wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js', null, null, true);
+	wp_enqueue_style('swiper-css','https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css');
+	// wp_enqueue_script('owl-js', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js', null, null, true);
+	// wp_enqueue_script('owl-css', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css	', null, null, true);
 	wp_register_script('app' , get_template_directory_uri() . '/dist/js/app.js' ,['jquery'] , 1 , true);	
 	wp_enqueue_script('app');
 
@@ -218,4 +220,113 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 function boldo_features(){
 	register_nav_menu('headerMainMenu', 'Main Header Menu');
 }
-add_action('after_setup_theme','boldo_features' );    
+add_action('after_setup_theme','boldo_features' );   
+
+function boldo_features1(){
+	register_nav_menu('landings', 'Landing Menu');
+}
+add_action('after_setup_theme','boldo_features1' );    
+
+function boldo_features2(){
+	register_nav_menu('company', 'Landing Menu1');
+}
+add_action('after_setup_theme','boldo_features2' );    
+
+function boldo_features3(){
+	register_nav_menu('resources', 'Landing Menu2');
+}
+add_action('after_setup_theme','boldo_features3' );    
+
+function prefix_nav_description( $item_output, $item, $depth, $args ) {
+    if ( !empty( $item->description ) ) {
+        $item_output = str_replace( $args->link_after . '</a>', '<span class="menu-item-description">' . $item->description . '</span>' . $args->link_after . '</a>', $item_output );
+    }
+    return $item_output;
+}
+add_filter( 'walker_nav_menu_start_el', 'prefix_nav_description', 10, 4 );
+
+
+function load_more_blogs(){
+    $args = array(
+        'post_type' => 'blogs',
+        'posts_per_page' => 10000,
+		'offset' => 3
+    );
+    $query = new WP_Query($args);
+	$ajaxposts = [];
+	if ($query->have_posts()) :
+		$i=0;
+        while ($query->have_posts()) : $query->the_post();
+			$projects_preview=get_field('single_blog_view');
+            $categories = get_the_category();
+			$date=get_the_date();
+			$project_slugB = get_post_field( 'post_name',$query->ID );
+			$ajaxposts[$i] = [ 'projects_preview' => $projects_preview, 'categories'=> $categories, 'date'=> $date, 'project_slug' => $project_slugB];
+			$i++;
+		endwhile;
+	endif;
+
+    echo json_encode($ajaxposts);
+	exit;
+}
+add_action('wp_ajax_load_more_blogs', 'load_more_blogs');
+add_action('wp_ajax_nopriv_load_more_blogs', 'load_more_blogs');
+
+
+function load_more_services(){
+    $args = array(
+        'post_type' => 'services',
+        'posts_per_page' => 10000,
+		'offset' => 3
+    );
+    $query = new WP_Query($args);
+	$ajaxposts = [];
+	if ($query->have_posts()) :
+		$i=0;
+        while ($query->have_posts()) : $query->the_post();
+			$projects_preview=get_field('home_view');
+            $categories = get_the_category();
+			$date=get_the_date();
+			$project_slugS = get_post_field( 'post_name',$query->ID );
+			$ajaxposts[$i] = [ 'projects_preview' => $projects_preview, 'categories'=> $categories, 'date'=> $date, 'project_slug' => $project_slugS];
+			$i++;
+		endwhile;
+	endif;
+
+    echo json_encode($ajaxposts);
+	exit;
+}
+
+add_action('wp_ajax_load_more_services', 'load_more_services');
+add_action('wp_ajax_nopriv_load_more_services', 'load_more_services');
+
+
+
+
+
+function load_home_blogs(){
+    $args = array(
+        'post_type' => 'blogs',
+        'posts_per_page' => 3,
+		'offset' => 3
+    );
+    $query = new WP_Query($args);
+	$ajaxposts = [];
+	if ($query->have_posts()) :
+		$i=0;
+        while ($query->have_posts()) : $query->the_post();
+			$projects_preview=get_field('home_view');
+            $categories = get_the_category();
+			$date=get_the_date();
+			$project_slugS = get_post_field( 'post_name',$query->ID );
+			$ajaxposts[$i] = [ 'projects_preview' => $projects_preview, 'categories'=> $categories, 'date'=> $date, 'project_slug' => $project_slugS];
+			$i++;
+		endwhile;
+	endif;
+
+    echo json_encode($ajaxposts);
+	exit;
+}
+
+add_action('wp_ajax_load_home_blogs', 'load_home_blogs');
+add_action('wp_ajax_nopriv_load_home_blogs', 'load_home_blogs');

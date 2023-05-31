@@ -235,7 +235,7 @@ $title=$fifth_section['title'];
                 <div class="click-collapse">
                     <h5 class="title-collapse"><?php echo $title ?></h5>
                     <button class="btn-collapse">
-                        <img data-scroll src=" <?php echo get_template_directory_uri(); ?> /images/chevron-down.png" alt="">
+                        <img data-scroll src=" <?php echo get_template_directory_uri(); ?>/images/chevron-down.png" alt="">
                     </button>
                 </div>
                 <div class="collapse-inside">
@@ -295,4 +295,5 @@ $title=$fifth_section['title'];
     <div class="load-wrap">
         <button data-scroll class="btn-load">Load More</button>
     </div>
+    <?php $blogUrl = get_site_url() . '/blog/'; ?>
 </section>

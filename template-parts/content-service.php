@@ -24,7 +24,8 @@
         $projectServices =new WP_Query(array(
             'posts_per_page'=> 3,
             'order'=> 'asc',
-            'post_type'=>'services'
+            'post_type'=>'services',
+            
             ));
         while ($projectServices->have_posts()) {
             $projectServices->the_post(); 

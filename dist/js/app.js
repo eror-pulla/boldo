@@ -8,11 +8,15 @@
 /***/ (() => {
 
 $(document).ready(function () {
+  // $('.mode-btn').text('Dark Mode');
   setTimeout(function () {
     $('.invert').addClass('is-inview');
     $('.nav').addClass('is-inview');
     $('.mode-btn').addClass('is-inview');
   }, 100);
+  $(window).on('resize', function () {
+    scroll.update();
+  });
   var swiper = new Swiper(".mySwiper1", {
     loop: true,
     slidesPerView: 6,
@@ -83,7 +87,7 @@ $(document).ready(function () {
     }
     if (scroll.scroll.instance.scroll.y < 100) {
       // Remove CSS class from the header element
-      $('#.header').removeClass('scroll-background');
+      $('.header').removeClass('scroll-background');
     }
   });
   var storedMode = localStorage.getItem('mode');
@@ -91,6 +95,7 @@ $(document).ready(function () {
     console.log('mode osht dark');
     $('body').addClass('dark-mode');
   }
+  // $('.mode-btn').text('Dark Mode');
   $('.mode-btn').on('click', function () {
     var $this = $(this);
     $('body').toggleClass('dark-mode');
@@ -101,14 +106,24 @@ $(document).ready(function () {
     }
     // console.log('uprek');
     if ($('body').hasClass('dark-mode')) {
-      console.log('ka mode');
+      // console.log('ka mode');
       localStorage.setItem('mode', 'dark-mode');
+      $('.mode-btn').text('Light Mode');
     } else {
       localStorage.setItem('mode', 'light-mode');
+      $('.mode-btn').text('Dark Mode');
     }
     // saa
   });
 
+  if ($('body').hasClass('dark-mode')) {
+    // console.log('ka mode');
+    localStorage.setItem('mode', 'dark-mode');
+    $('.mode-btn').text('Light Mode');
+  } else {
+    localStorage.setItem('mode', 'light-mode');
+    $('.mode-btn').text('Dark Mode');
+  }
   $('.ticks-wrap1').first().addClass('active-ticks');
   $('.ticks-wrap1').on('click', function () {
     $('.ticks-wrap1').not(this).removeClass('active-ticks');
@@ -124,6 +139,7 @@ $(document).ready(function () {
     var height = $content[0].clientHeight;
     $content.css('height', '0');
     $CollapseItem.click(function () {
+      $CollapseItem.find(".btn-collapse").toggleClass("active-img-collapse");
       if ($CollapseItem.hasClass('faq-item-open')) {
         $CollapseItem.removeClass('faq-item-open');
         $content.css('height', '0');
@@ -133,31 +149,6 @@ $(document).ready(function () {
       }
     });
   });
-
-  // $('.btn-show').hide();
-  // $('.blog-card-home:nth-last-child(-n+3)').hide();
-
-  // $('.btn-show').hide()
-  // $('.blog-card-home:nth-last-child(-n+3)').addClass('not-active-blog');
-  // // $('.wpcf7-spinner').hide();
-  // $('.btn-load').on('click', function() {
-  //   $('.blog-card-home:nth-last-child(-n+3)').fadeIn();
-  //   $('.btn-load').hide();
-  //   $('.btn-show').show();
-  //   $('.blog-card-home:nth-last-child(-n+3)').addClass('active-blog');
-  // });
-
-  // $('.btn-show').hide();
-  // $('.blog-card-home:nth-last-child(-n+3)').hide();
-
-  // $('.btn-load').on('click', function() {
-  //   $('.blog-card-home:nth-last-child(-n+3)').fadeIn();
-  //   $('.btn-load').hide();
-  //   $('.btn-show').show();
-  //   $('.blog-card-home:nth-last-child(-n+3)').appendTo('.blog-wrap-home');
-  // });
-
-  // $('.btn-show').hide();
   $('.load-wrap').click(function () {
     var loadMoreButton = $(this);
     var container = $('.blog-wrap-home');
@@ -169,6 +160,7 @@ $(document).ready(function () {
         action: 'load_home_blogs'
       },
       success: function success(response) {
+        var blogUrl = response;
         var blogPost = '';
         for (var index = 0; index < response.length; index++) {
           var pageURL = $(location).attr("href");
@@ -179,7 +171,17 @@ $(document).ready(function () {
         console.log(response);
         // Append the new posts to the existing ones
         $('.blog-wrap-home').append(blogPost);
-        $('.blog-section').append("\n            <div data-scroll class=\"show-all\">\n            <a href=\"<?php echo get_site_url().'/blog/' ?>\">\n                <button class=\"btn-show\">Show All</button>\n            </a>\n          </div>");
+        var currentLocation = window.location.href;
+
+        // Add "/blog/" to the current location
+        var newLocation = currentLocation + "/blog/";
+        $('.blog-section').append("\n              <div data-scroll class=\"show-all\">\n                <a href=\"".concat(newLocation, "\">\n                  <button class=\"btn-show\">Show All</button>\n                </a>\n              </div>\n            "));
+        //   $('.blog-section').append(`
+        //   <div data-scroll class="show-all">
+        //   <a href="">
+        //       <button class="btn-show">Show All</button>
+        //   </a>
+        // </div>`);
         scroll.update();
 
         // $('.btn-show').show();
@@ -192,19 +194,21 @@ $(document).ready(function () {
   });
   $('#load-more-blog').click(function () {
     var loadMoreButton = $(this);
+    var offset = 3;
     var container = $('.card-wrap');
     $.ajax({
       type: 'POST',
       url: ajaxurl,
       dataType: 'json',
       data: {
-        action: 'load_more_blogs'
+        action: 'load_more_blogs',
+        offset: offset
       },
       success: function success(response) {
         var blogPost = '';
         for (var index = 0; index < response.length; index++) {
           var pageURL = $(location).attr("href");
-          blogPost += "\n            <div class=\"blog-card\">\n              <a href=\"" + pageURL + "" + response[index].project_slug + "\">\n                <img data-scroll src=\"" + response[index].projects_preview.image + "\" alt=\"\">\n                <div class=\"cat-wrap\">\n                  <p data-scroll class='cat'> " + response[index].categories[0].slug + "</p>\n                  <p data-scroll class='date'>" + response[index].date + "</p>\n                </div>\n                <p data-scroll>" + response[index].projects_preview.text + "</p>\n                <div class=\"prof-wrap\">\n                  <img data-scroll src=\"" + response[index].projects_preview.profile_img + "\" alt=\"\">\n                  <p data-scroll>" + response[index].projects_preview.client_name + "</p>\n                </div>\n              </a>\n            </div>\n            ";
+          blogPost += "\n            <div class=\"blog-card\">\n              <a href=\"" + pageURL + "" + response[index].project_slug + "\">\n                <img data-scroll src=\"" + response[index].projects_preview.image + "\" alt=\"\">\n                <div class=\"cat-wrap\">\n                  <p data-scroll class='cat'> " + response[index].categories[0].slug + "</p>\n                  <p data-scroll class='date'>" + response[index].date + "</p>\n                </div>\n                <p data-scroll>" + response[index].title + "</p>\n                <div class=\"prof-wrap\">\n                  <img data-scroll src=\"" + response[index].projects_preview.profile_img + "\" alt=\"\">\n                  <p data-scroll>" + response[index].projects_preview.client_name + "</p>\n                </div>\n              </a>\n            </div>\n            ";
           loadMoreButton.hide();
         }
         // console.log( blogPost );
@@ -219,6 +223,7 @@ $(document).ready(function () {
     });
   });
   $('#load-more-service').click(function () {
+    console.log('preka');
     var loadMoreButton = $(this);
     var container = $('.card-wrap');
     $.ajax({

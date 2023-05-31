@@ -247,10 +247,12 @@ add_filter( 'walker_nav_menu_start_el', 'prefix_nav_description', 10, 4 );
 
 
 function load_more_blogs(){
+	$offset = isset($_POST['offset']) ? intval($_POST['offset']) : 0;
     $args = array(
         'post_type' => 'blogs',
         'posts_per_page' => 10000,
-		'offset' => 3
+		'order'=> 'desc',
+		'offset' => $offset
     );
     $query = new WP_Query($args);
 	$ajaxposts = [];
@@ -260,8 +262,11 @@ function load_more_blogs(){
 			$projects_preview=get_field('single_blog_view');
             $categories = get_the_category();
 			$date=get_the_date();
+			$text1 = get_the_title();
+			// $blogUrl = get_site_url() . '/blog/';
 			$project_slugB = get_post_field( 'post_name',$query->ID );
-			$ajaxposts[$i] = [ 'projects_preview' => $projects_preview, 'categories'=> $categories, 'date'=> $date, 'project_slug' => $project_slugB];
+			$ajaxposts[$i] = ['title'=> $text1, 'projects_preview' => $projects_preview, 'categories'=> $categories, 'date'=> $date, 
+			'project_slug' => $project_slugB ];
 			$i++;
 		endwhile;
 	endif;

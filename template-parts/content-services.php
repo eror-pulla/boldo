@@ -8,17 +8,15 @@ $projectServices =new WP_Query(array(
     if ( $projectServices->have_posts() ) : 
     while ( $projectServices->have_posts() ) : $projectServices->the_post();
     $single_service=get_field('single_service');
-
-    // $header=$single_service['header'];
-    // $image=$single_service['image'];
-    // $paragraph=$single_service['paragraph'];
     ?>
 <section class="wraper-services" data-scroll-section>
 
     <section class="services-section ">
         <h4 data-scroll><?php echo get_the_title(); ?></h4>
         <p data-scroll class='date'><?php echo get_the_date(); ?></p>
-        <img data-scroll src=" <?php echo get_the_post_thumbnail(); ?>
+        <div class="img-thumb" data-scroll>
+            <?php echo get_the_post_thumbnail(); ?>
+        </div>
     </section>
     <?php 
         if( have_rows('single_service') ): while ( have_rows('single_service') ) : the_row(); 

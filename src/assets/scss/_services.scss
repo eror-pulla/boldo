@@ -51,13 +51,18 @@
             transform: translateY(0px);
         }
         }
-        img{
-           
+        .img-thumb{
             object-fit: cover;
             opacity: 0;
             visibility: hidden;
             transition: all ease .6s;
             transform: translateY(20px);
+            img{
+                width: 100%;
+                min-height: 350px;
+                max-height: 500px;
+                object-fit: cover;
+            }
         &.is-inview{
             opacity: 1;
             visibility: visible;
@@ -76,7 +81,7 @@
         h4{
             font-family: 'Manrope';
             font-style: normal;
-            font-weight: 400;
+            font-weight: 400; 
             font-size: 42px;
             line-height: 84px;
             color: var(--color);
@@ -218,7 +223,10 @@
             &.is-inview{
             }
             }
-            img{
+            .img-thumb{
+                img{
+
+                }
             &.is-inview{
             }
             }
@@ -294,7 +302,10 @@
             &.is-inview{
             }
             }
-            img{
+            .img-thumb{
+                img{
+
+                }
             &.is-inview{
             }
             }
@@ -369,7 +380,10 @@
             &.is-inview{
             }
             }
-            img{
+            .img-thumb{
+                img{
+
+                }
                 max-height: 500px;
             &.is-inview{
             }
@@ -448,7 +462,10 @@
             &.is-inview{
             }
             }
-            img{
+            .img-thumb{
+                img{
+
+                }
                 max-height: 400px;
             &.is-inview{
             }
@@ -527,7 +544,10 @@
             &.is-inview{
             }
             }
-            img{
+            .img-thumb{
+                img{
+                    
+                }
                 max-height: 400px;
             &.is-inview{
             }

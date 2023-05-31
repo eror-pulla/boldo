@@ -49,7 +49,7 @@
 			?>
 			<div class="mode">
 				<button class="mode-btn">
-					Dark Mode
+					
 				</button>
 			</div>
 		</div>

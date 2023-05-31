@@ -194,6 +194,7 @@
 
 @media(max-width:768px){
     .header-mobile{
+        overflow: hidden;
         background-color: var(--bg-color);
         display: block;
         z-index: 9999999999999999;
@@ -203,9 +204,10 @@
         top: 0px;
         width: 100%;
         .wraper-mob{
+            overflow: hidden;
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: center; 
             width: 100%;
             .div-img-wrap{
                 margin-left: 20px;
@@ -217,6 +219,7 @@
             }
             .menu-mobile-btn{
                 margin-right: 20px;
+                overflow: hidden;
                 transition: all ease-in-out 0.3s;
                 img{
                     filter: var(--mobile_1) ;
@@ -228,22 +231,24 @@
         }
     }
     .overlay{
+        overflow: hidden;
         display: block;
         z-index: 99999999;
         background: var(--bg-color);
         width: 100vw;
         height: 100vh;
         position: fixed;
+        top: 0;
         visibility: hidden; 
         transform: translateX(100%);
         transition: all ease-in-out 0.3s;
-        overflow: hidden;
         .mobile-nav{
             width: 100vw;
             height: 50vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow: hidden;
             .menu-main-menu-container{
                 ul{
                     display: flex;
@@ -268,6 +273,7 @@
             }
         }
         .mode{
+            overflow: hidden;
             .mode-btn{
                 padding: 8px 20px;
                 font-family: 'Open Sans';

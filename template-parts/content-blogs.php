@@ -19,7 +19,9 @@ $projectB =new WP_Query(array(
     <div class="date-section">
         <p class='date' data-scroll> <?php echo get_the_date(); ?> </p>
     </div>
-    <img data-scroll class="img-baner" src=" <?php echo the_post_thumbnail(); ?>
+    <div data-scroll class="img-baner">
+        <?php echo the_post_thumbnail(); ?>
+    </div>
 </section>
 <?php 
 if( have_rows('single_blogs') ): while ( have_rows('single_blogs') ) : the_row(); 
@@ -30,7 +32,7 @@ if( have_rows('repeater_blog') ): while ( have_rows('repeater_blog') ) : the_row
     $paragraph=get_sub_field('paragraph');
 ?>
 <div class="blog-content p-5" data-scroll-section>
-    <h4 data-scroll><?php echo $header?></h4>
+    <h4 data-scroll><?php echo $header?></h4> 
     <p data-scroll><?php echo $paragraph ?></p>
     <img data-scroll src="<?php echo $image?>" alt="">
 </div>
@@ -42,8 +44,19 @@ if( have_rows('repeater_blog') ): while ( have_rows('repeater_blog') ) : the_row
     <div class="tags-wrap p-5" data-scroll>
         <h4  data-scroll>Post Tags - </h4>
         <?php 
-        $post_tags= wp_get_post_tags(); ?>
-        <?php wp_tag_cloud(array('orderby' => 'name', 'format' => 'list')); ?>
+        $post_id = get_the_ID(); // Get the current post ID
+        $tags = wp_get_post_tags($post_id); // Retrieve the tags for the post
+        
+        if ($tags) {
+            echo '<div class="tag-cloud">'; // Start the tag cloud HTML
+        
+            foreach ($tags as $tag) {
+                echo '<span class="tag">' . $tag->name . '</span> '; // Output each tag without a link
+            }
+        
+            echo '</div>'; // Close the tag cloud HTML
+        }
+        ?>
     </div>
 </div>
 <?php endwhile; ?>

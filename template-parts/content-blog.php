@@ -48,19 +48,23 @@
     <?php 
         $projectsBlog =new WP_Query(array(
             'posts_per_page'=> 3,
-            'order'=> 'asc',
-            'post_type'=>'blogs'
+            'order'=> 'desc',
+            'post_type'=>'blogs',
+            'category__not_in' => get_category_by_slug('main-blog')->term_id,
             ));
         while ($projectsBlog->have_posts()) {
             $projectsBlog->the_post(); 
-
+            $text1=get_the_title();
             $projects_preview=get_field('single_blog_view');
-            $text=$projects_preview['text'];
             $image=$projects_preview['image'];
             $profile_img=$projects_preview['profile_img'];
             $client_name=$projects_preview['client_name'];
             
             $project_slugB = get_post_field( 'post_name',$blogs->ID );
+            // $cat = get_category_by_slug('main-blog');
+            //     $args = array(
+            //         'exclude' => $cat->term_id
+            //     );
             $categories = get_the_category();
                foreach($categories as $category) { 
                 $category_slug = $category->slug;
@@ -73,7 +77,7 @@
                     <p data-scroll class='cat'><?php echo  $category_slug ?></p>
                     <p data-scroll class='date'><?php echo get_the_date(); ?></p>
                 </div>
-                <p data-scroll s><?php echo $text ?></p>
+                <p data-scroll s><?php echo $text1 ?></p>
                 <div class="prof-wrap">
                     <img data-scroll src="<?php echo $profile_img ?>" alt="">
                     <p data-scroll><?php echo $client_name?></p>

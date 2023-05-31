@@ -1,12 +1,14 @@
 $(document).ready(function() {
-
+  // $('.mode-btn').text('Dark Mode');
   setTimeout(function() {
       $('.invert').addClass('is-inview');
       $('.nav').addClass('is-inview');
       $('.mode-btn').addClass('is-inview');
   }, 100);
 
-
+  $(window).on('resize', function(){
+    scroll.update();
+  });
 
   var swiper = new Swiper(".mySwiper1", {
     loop:true,
@@ -82,7 +84,7 @@ scroll.on('scroll', function() {
     $('.header').addClass('scroll-background');
   } if (scroll.scroll.instance.scroll.y < 100) {
     // Remove CSS class from the header element
-    $('#.header').removeClass('scroll-background');
+    $('.header').removeClass('scroll-background');
   }
 });
 
@@ -91,7 +93,7 @@ scroll.on('scroll', function() {
         console.log('mode osht dark');
         $('body').addClass('dark-mode');
       }
-
+      // $('.mode-btn').text('Dark Mode');
     $('.mode-btn').on('click', function() {
       var $this = $(this);
       $('body').toggleClass('dark-mode');
@@ -102,15 +104,24 @@ scroll.on('scroll', function() {
       }
       // console.log('uprek');
       if ($('body').hasClass('dark-mode')) {
-        console.log('ka mode');
+        // console.log('ka mode');
         localStorage.setItem('mode', 'dark-mode');
+        $('.mode-btn').text('Light Mode');
       } else {
         localStorage.setItem('mode', 'light-mode');
+        $('.mode-btn').text('Dark Mode');
       }
       // saa
       
     });
-
+    if ($('body').hasClass('dark-mode')) {
+      // console.log('ka mode');
+      localStorage.setItem('mode', 'dark-mode');
+      $('.mode-btn').text('Light Mode');
+    } else {
+      localStorage.setItem('mode', 'light-mode');
+      $('.mode-btn').text('Dark Mode');
+    }
 
 
 
@@ -130,6 +141,7 @@ scroll.on('scroll', function() {
       var height = $content[0].clientHeight
       $content.css('height', '0');
       $CollapseItem.click(function() {
+        $CollapseItem.find(".btn-collapse").toggleClass("active-img-collapse");
           if ($CollapseItem.hasClass('faq-item-open')) {
             $CollapseItem.removeClass('faq-item-open');
               $content.css('height', '0');
@@ -141,31 +153,6 @@ scroll.on('scroll', function() {
       });
   });
 
-
-  // $('.btn-show').hide();
-  // $('.blog-card-home:nth-last-child(-n+3)').hide();
-  
-  // $('.btn-show').hide()
-  // $('.blog-card-home:nth-last-child(-n+3)').addClass('not-active-blog');
-  // // $('.wpcf7-spinner').hide();
-  // $('.btn-load').on('click', function() {
-  //   $('.blog-card-home:nth-last-child(-n+3)').fadeIn();
-  //   $('.btn-load').hide();
-  //   $('.btn-show').show();
-  //   $('.blog-card-home:nth-last-child(-n+3)').addClass('active-blog');
-  // });
-
-// $('.btn-show').hide();
-// $('.blog-card-home:nth-last-child(-n+3)').hide();
-
-// $('.btn-load').on('click', function() {
-//   $('.blog-card-home:nth-last-child(-n+3)').fadeIn();
-//   $('.btn-load').hide();
-//   $('.btn-show').show();
-//   $('.blog-card-home:nth-last-child(-n+3)').appendTo('.blog-wrap-home');
-// });
-
-// $('.btn-show').hide();
 $('.load-wrap').click(function() {
   var loadMoreButton = $(this);
   var container = $('.blog-wrap-home');
@@ -175,6 +162,7 @@ $('.load-wrap').click(function() {
         dataType: 'json',
         data: {action: 'load_home_blogs'},
         success: function(response) {
+          var blogUrl = response;
           let blogPost ='' ;
           for (let index = 0; index < response.length; index++) {
             var pageURL = $(location).attr("href");
@@ -203,12 +191,25 @@ $('.load-wrap').click(function() {
           console.log( response );
             // Append the new posts to the existing ones
             $('.blog-wrap-home').append(blogPost);
+            var currentLocation = window.location.href;
+
+            // Add "/blog/" to the current location
+            var newLocation = currentLocation + "/blog/";
+            
+
             $('.blog-section').append(`
-            <div data-scroll class="show-all">
-            <a href="<?php echo get_site_url().'/blog/' ?>">
-                <button class="btn-show">Show All</button>
-            </a>
-          </div>`);
+              <div data-scroll class="show-all">
+                <a href="${newLocation}">
+                  <button class="btn-show">Show All</button>
+                </a>
+              </div>
+            `);
+          //   $('.blog-section').append(`
+          //   <div data-scroll class="show-all">
+          //   <a href="">
+          //       <button class="btn-show">Show All</button>
+          //   </a>
+          // </div>`);
             scroll.update();
 
             // $('.btn-show').show();
@@ -220,14 +221,19 @@ $('.load-wrap').click(function() {
 
 });
 
+
 $('#load-more-blog').click(function() {
   var loadMoreButton = $(this);
+  var offset = 3;
   var container = $('.card-wrap');
     $.ajax({
         type: 'POST',
         url: ajaxurl,
         dataType: 'json',
-        data: {action: 'load_more_blogs'},
+        data: {
+        action: 'load_more_blogs' ,
+        offset: offset
+      },
         success: function(response) {
           let blogPost ='' ;
           for (let index = 0; index < response.length; index++) {
@@ -240,7 +246,7 @@ $('#load-more-blog').click(function() {
                   <p data-scroll class='cat'> `+ response[index].categories[0].slug  +`</p>
                   <p data-scroll class='date'>`+ response[index].date+`</p>
                 </div>
-                <p data-scroll>`+ response[index].projects_preview.text +`</p>
+                <p data-scroll>`+ response[index].title +`</p>
                 <div class="prof-wrap">
                   <img data-scroll src="`+ response[index].projects_preview.profile_img +`" alt="">
                   <p data-scroll>`+ response[index].projects_preview.client_name +`</p>
@@ -263,7 +269,9 @@ $('#load-more-blog').click(function() {
 
 });
 
+
 $('#load-more-service').click(function() {
+  console.log('preka');
   var loadMoreButton = $(this);
   var container = $('.card-wrap');
     $.ajax({

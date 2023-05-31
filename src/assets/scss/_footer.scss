@@ -27,7 +27,7 @@
             &.is-inview{
                 opacity: 1;
                 visibility: visible;
-                transition-delay: 0.1s;
+                transition-delay: 0.3s;
                 transform: translateY(0px);
             }
                 .invert{
@@ -57,7 +57,7 @@
             &.is-inview{
                 opacity: 1;
                 visibility: visible;
-                transition-delay: 0.2s;
+                transition-delay: 0.4s;
                 transform: translateY(0px);
             }
             }
@@ -76,7 +76,7 @@
             &.is-inview{
                 opacity: 1;
                 visibility: visible;
-                transition-delay: 0.3s;
+                transition-delay: 0.5s;
                 transform: translateY(0px);
             }
             }
@@ -96,7 +96,7 @@
             &.is-inview{
                 opacity: 1;
                 visibility: visible;
-                transition-delay: 0.3s;
+                transition-delay: 0.4s;
                 transform: translateY(0px);
             }
                 h3{
@@ -127,8 +127,9 @@
                             .menu-item-description{
                                 margin-left: 20px;
                                 padding: 2px 14px;
-                                background-color: var(--green_1) ; 
+                                background-color: var(--green_1); 
                                 color: $main-color;
+                                border-radius: 120px;
                                 font-family: 'Open Sans';
                                 font-style: normal;
                                 font-weight: 700;
@@ -149,7 +150,7 @@
             &.is-inview{
                 opacity: 1;
                 visibility: visible;
-                transition-delay: 0.3s;
+                transition-delay: 0.4s;
                 transform: translateY(0px);
             }
                 h3{
@@ -202,7 +203,7 @@
             &.is-inview{
                 opacity: 1;
                 visibility: visible;
-                transition-delay: 0.3s;
+                transition-delay: 0.4s;
                 transform: translateY(0px);
             }
                 h3{
@@ -705,7 +706,9 @@
                 }
             }
             .col-wrap{
-                gap: 12.5%;
+                flex-direction: column;
+                gap: 5%;
+                // gap: 12.5%;
                 .col-landing{
                    
                 &.is-inview{
@@ -801,8 +804,7 @@
                 }
             }
             .col-wrap{
-                flex-direction: column;
-                gap: 5%;
+                
                 .col-landing{
                    
                 &.is-inview{

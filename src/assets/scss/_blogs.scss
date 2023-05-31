@@ -2,6 +2,7 @@
     margin-top: 150px;
     h4{
         font-family: 'Manrope';
+        text-align: center;
         font-style: normal;
         font-weight: 400;
         font-size: 38px;
@@ -47,6 +48,11 @@
         visibility: hidden;
         transition: all ease .6s;
         transform: translateY(20px);
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     &.is-inview{
         opacity: 1;
         visibility: visible;
@@ -132,30 +138,29 @@
             font-weight: 400;
             color: var(--color);
         }
-        .wp-tag-cloud{
+        .tag-cloud{
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin:0;
-            padding: 0;
-            margin-left: 12px;
-            gap: 12px;
-            li{
+            .tag{
+                margin:0;
+                padding: 0;
+                margin-left: 12px;
+                gap: 12px;
                 border: 1px solid;
                 border-color: var(--footer-color);
-                border-radius: 10px;
+                border-radius: 24px;
                 padding: 10px 10px;
                 background-color: var(--bg-color);
                 list-style: none;
+                font-family: 'Open Sans';
+                font-style: normal;
+                font-weight: 400;
+                text-decoration: none;
+                color:var(--color);
                 &:hover{
-                    background-color: var(--footer-color);
-                }
-                a{
-                    font-family: 'Open Sans';
-                    font-style: normal;
-                    font-weight: 400;
-                    text-decoration: none;
-                    color:var(--color);
+                    background-color: $green-light;
+                  
                 }
             }
         }
